@@ -18,9 +18,8 @@ run:
 
 run_test: 
 	@echo "Executing Test Program:"
-	@echo ""
-	chmod +x test_tree
 	@./test_tree
+	@echo ""
 
 clean: 
 	@echo "Cleaning .deb build artifacts..."
