@@ -8,7 +8,6 @@ compile:
 compile_test:
 	@echo "Executing Test Compilation Command:"
 	g++ -std=c++11 bst.cpp test_bst.cpp -o test_tree
-	chmod +x test_tree
 	@echo ""
 
 run: 
@@ -19,6 +18,7 @@ run:
 run_test: 
 	@echo "Executing Test Program:"
 	@echo ""
+	chmod +x test_tree
 	@./test_tree
 
 clean: 
