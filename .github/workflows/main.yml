@@ -1,0 +1,29 @@
+name: C++ CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential clang-tidy
+
+    - name: Compile tests
+      run: make compile_test
+
+    - name: Run tests
+      run: make run_test
+
+    - name: Lint
+      run: |
+        clang-tidy bst.cpp -- -std=c++11 -I.
+        clang-tidy test_bst.cpp -- -std=c++11 -I.
