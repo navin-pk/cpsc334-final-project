@@ -1,0 +1,7 @@
+Package: final-project
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: Navin Kunakornvanich <nkunakornvanich@zagmail.gonzaga.edu>
+Description: BST River project for CPSC334 final.

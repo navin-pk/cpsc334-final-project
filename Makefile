@@ -22,4 +22,14 @@ run_test:
 	@./test_tree
 
 clean: 
-	@rm -f tree test_tree
+	@echo "Cleaning .deb build artifacts..."
+	rm -f tree test_tree
+	rm -f bst-project_1.0.deb
+	rm -f debbuild/usr/local/bin/test_tree
+
+build-deb:
+	@echo "Compiling project and building .deb package..."
+	make compile_test
+	cp test_tree debbuild/usr/local/bin/test_tree
+	chmod 755 debbuild/usr/local/bin/test_tree
+	dpkg-deb --build debbuild bst-project_1.0.deb
